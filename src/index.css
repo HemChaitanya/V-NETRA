@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-p1: #ff3b30;
+    --color-p2: #ff9500;
+    --color-p3: #32ade6;
+    --color-bg-dark: #070a0f;
+    --color-panel: #0f172a;
+    --color-border: #1e293b;
+  }
+
+  body {
+    background-color: #080c14;
+    color: #e2e8f0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Monospace tactical telemetry font */
+  .font-mono-tactical {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Military/Discom Display font */
+  .font-display {
+    font-family: 'Chakra Petch', sans-serif;
+  }
+}
+
+/* Radar pulse animation for P1 Critical Hazards */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Grid background for tactical GIS map & viewfinder */
+.bg-tactical-grid {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(50, 173, 230, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(50, 173, 230, 0.05) 1px, transparent 1px);
+}
+
+.bg-dot-grid {
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
